@@ -48,7 +48,15 @@ async function add_productImage(req, res) {
 
   try {
     const productId = req.body.productId;
-    imagePath = req.file.path;
+    const path = req.file.path;
+    
+    const splitPath = path.split("\\");
+    imagePath = splitPath.slice(-3).join("\\");
+    // .originalname
+    // const date = new Date().getTime().toString();
+    // const imagename = date + req.file.originalname
+    // imagePath = path.join('uploads', 'products', `${imagename}`)
+    // console.log({"imagePath":imagePath});
     console.log({"imagePath":imagePath});
     const productImage = await ProductImages.create({
       imagePath,

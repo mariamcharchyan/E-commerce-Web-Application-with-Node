@@ -11,7 +11,7 @@ async function get_basketItems_userId(req, res) {
                 {
                   model: Products,
                   as: 'productData',
-                  attributes: ['id', 'name', 'price' ],
+                  attributes: ['id', 'name', 'price', 'quantity'],
                   include: [
                       {
                         model: ProductImages,
@@ -72,28 +72,64 @@ async function delete_basketItem_id(req, res) {
 }
 
 
-
 async function add_basketItem(req, res) {
     try {
-        const { userId, productId } = req.body;
+      const { userId, productId } = req.body;
+  
+      // Check the product quantity in the Products table
+      const product = await Products.findOne({
+        where: { id: productId },
+      });
+  
+      if (product && product.quantity > 0) {
         let basketItem = await Baskets.findOne({
-            where: { userId, productId },
+          where: { userId, productId },
         });
-    
+  
         if (basketItem) {
+          if(basketItem.quantity < product.quantity){
             // If the basket item already exists, update the quantity by adding one
             basketItem.quantity += 1;
             await basketItem.save();
+          }
+
         } else {
-            // If the basket item doesn't exist, create a new one
-            basketItem = await Baskets.create({ userId, productId });
+          // If the basket item doesn't exist, create a new one
+          basketItem = await Baskets.create({ userId, productId });
         }
-    
-        res.status(201).json({ success: 'Basket item added successfully', basketItem });
+  
+        res
+          .status(201)
+          .json({ success: 'Basket item added successfully', basketItem });
+      } else {
+        res.status(400).json({ error: 'Product is out of stock' });
+      }
     } catch (err) {
-        res.status(500).json({ error: err.message });
+      res.status(500).json({ error: err.message });
     }
-}
+  }
+  
+// async function add_basketItem(req, res) {
+//     try {
+//         const { userId, productId } = req.body;
+//         let basketItem = await Baskets.findOne({
+//             where: { userId, productId },
+//         });
+    
+//         if (basketItem) {
+//             // If the basket item already exists, update the quantity by adding one
+//             basketItem.quantity += 1;
+//             await basketItem.save();
+//         } else {
+//             // If the basket item doesn't exist, create a new one
+//             basketItem = await Baskets.create({ userId, productId });
+//         }
+    
+//         res.status(201).json({ success: 'Basket item added successfully', basketItem });
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// }
 
 
 

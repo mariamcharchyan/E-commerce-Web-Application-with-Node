@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-// const cors = require('cors');
-// app.use(cors());
+// app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static('./uploads'));
+const cors = require('cors');
+app.use(cors());
 const users_routes = require('./routes/users_routes');
 const mail_rout = require('./routes/mail_rout');
 const categories_routes = require('./routes/categories_routes');

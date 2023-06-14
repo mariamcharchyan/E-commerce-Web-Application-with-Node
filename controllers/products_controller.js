@@ -54,7 +54,7 @@ async function get_products(req, res) {
                     {
                       model: ProductImages,
                       as: 'productImages',
-                      attributes: ['imagePath'],
+                      attributes: ['id', 'imagePath'],
                     },
                 ],
             });

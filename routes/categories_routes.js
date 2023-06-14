@@ -4,8 +4,8 @@ const jwt_authorization = require('../jwt/jwt_authorization')
 
 function get_categories_route(app){
     app.get('/categories',
-    jwt_authentication.authenticateToken,
-    jwt_authorization.checkStatusAdmin,
+    // jwt_authentication.authenticateToken,
+    // jwt_authorization.checkStatusAdmin,
     categories_controller.get_categories)
 }
 
