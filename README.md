@@ -131,9 +131,9 @@ The server exposes the following API endpoints:
 ## Order Items Endpoints
 * `GET /orderItems/orderId` - Get all order items for a specific order.
 
-When a user places a new order (POST /order/new), the basket data for that user, identified by the userId, is moved to the order items (orderItems) table. The corresponding items are deleted from the basket. Additionally, the quantity of the products in the products table decreases and the quantity_sold increases.
+**When a user places a new order (POST /order/new), the basket data for that user, identified by the userId, is moved to the order items (orderItems) table. The corresponding items are deleted from the basket. Additionally, the quantity of the products in the products table decreases and the quantity_sold increases.**
 
-See the code for detailed information on each endpoint and their usage.
+**See the code for detailed information on each endpoint and their usage.**
 
 ## Project Structure
 
