@@ -138,20 +138,20 @@ See the code for detailed information on each endpoint and their usage.
 ## Project Structure
 
 
-- config/ (Contains the configuration file config.json for database settings.)
-  - config.json                     
-- controllers/ (Holds the controllers responsible for handling different API endpoints and their related logic.)
-  - basket_controller.js
-  - categories_controller.js
-  - mail_controller.js
-  - orderItems_controller.js
-  - orders_controller.js
-  - productImages_controller.js
-  - products_controller.js
-  - savedCards_controller.js
-  - shippingAddresses_controller.js
-  - users_controller.js
-  - userShippingAddresses_controller.js
+**- config/** Contains the configuration file config.json for database settings.
+  **- config.json**                     
+**- controllers/** Holds the controllers responsible for handling different API endpoints and their **related logic.**
+  **- basket_controller.js**
+  **- categories_controller.js**
+  **- mail_controller.js**
+  **- orderItems_controller.js**
+  **- orders_controller.js**
+  **- productImages_controller.js**
+  **- products_controller.js**
+  **- savedCards_controller.js**
+  **- shippingAddresses_controller.js**
+  **- users_controller.js**
+  **- userShippingAddresses_controller.js**
 
 * Contains modules for JWT authentication and authorization.
 - jwt/ ()
