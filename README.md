@@ -66,24 +66,24 @@ nodemon server.js
 
 By default, the server will run on http://localhost:5000.
 
-## API Endpoints
+# API Endpoints
 
 The server exposes the following API endpoints:
 
-# User Endpoints
+## User Endpoints
 * `POST /user/register`- Register a new user.
 * `POST /user/login` - Log in a user.
 * `DELETE /user/delete/:id` - Delete a user.
 * `POST /user/data` - Get user data.
 * `GET /users/datas `- Get data of all users.
 
-# Category Endpoints
+## Category Endpoints
 * `GET /categories` - Get all categories.
 * `POST /category/new` - Create a new category.
 * `DELETE /category/delete/:id` - Delete a category.
 * `PUT /category/update/:id` - Update a category.
 
-# Product Endpoints
+## Product Endpoints
 * `GET /products` - Get all products.
 * `GET /product/:id` - Get a specific product by ID.
 * `GET /products/:categoryId` - Get all products in a specific category.
@@ -93,42 +93,42 @@ The server exposes the following API endpoints:
 * `GET /newProducts` - Get new products.
 * `GET /bestSellingProducts` - Get best-selling products.
 
-# Product Image Endpoints
+## Product Image Endpoints
 * `GET /productImage/:id` - Get a specific product image by ID.
 * `GET /productImages/:productId` - Get all product images for a specific product.
 * `POST /productImage/new` - Add a new product image.
 * `DELETE /productImage/delete/:id` - Delete a product image.
 
-# Basket Item Endpoints
+## Basket Item Endpoints
 * `POST /basketItem/new` - Add a new item to the basket.
 * `GET /basketItems/:userId` - Get all basket items for a specific user.
 * `DELETE /basketItems/delete/:userId` - Delete all basket items for a specific user.
 * `DELETE /basketItem/delete/:id` - Delete a basket item by ID.
 * `PUT /basketItem/update/:id` - Update a basket item by ID.
 
-# Saved Card Endpoints
+## Saved Card Endpoints
 * `POST /savedCard/new` - Add a new saved card.
 * `DELETE /savedCard/delete/:id` - Delete a saved card by ID.
 * `GET /savedCards/:userId` - Get all saved cards for a specific user.
 
-# Shipping Address Endpoints
+## Shipping Address Endpoints
 * `GET /shippingAddresses` - Get all shipping addresses.
 * `GET /shippingAddress/:id` - Get a specific shipping address by ID.
 * `POST /shippingAddress/new` - Add a new shipping address.
 * `DELETE /shippingAddress/delete/:id` - Delete a shipping address by ID.
 * `PUT /shippingAddress/update/:id` - Update a shipping address by ID.
 
-# User Shipping Address Endpoints
+## User Shipping Address Endpoints
 * `POST /userShippingAddress/new` - Add a new user shipping address.
 * `DELETE /userShippingAddress/delete/:id` - Delete a user shipping address by ID.
 * `GET /userShippingAddresses/:userId` - Get all user shipping addresses for a specific user.
 
-# Orders Endpoints
+## Orders Endpoints
 * `POST /order/new` - Place a new order.
 * `GET /orders/:userId` - Get all orders for a specific user.
 * `GET /allOrders` - Get all orders.
 
-# Order Items Endpoints
+## Order Items Endpoints
 * `GET /orderItems/orderId` - Get all order items for a specific order.
 
 When a user places a new order (POST /order/new), the basket data for that user, identified by the userId, is moved to the order items (orderItems) table. The corresponding items are deleted from the basket. Additionally, the quantity of the products in the products table decreases and the quantity_sold increases.
@@ -138,93 +138,93 @@ See the code for detailed information on each endpoint and their usage.
 ## Project Structure
 
 * Contains the configuration file config.json for database settings.
-├── config
-│   └── config.json
-│
+- config/
+  - config.json
+
 * Holds the controllers responsible for handling different API endpoints and their related logic.                      
-├── controllers
-│   ├── basket_controller.js
-│   ├── categories_controller.js
-│   ├── mail_controller.js
-│   ├── orderItems_controller.js         
-│   ├── orders_controller.js
-│   ├── productImages_controller.js
-│   ├── products_controller.js 
-│   ├── savedCards_controller.js
-│   ├── shippingAddresses_controller.js
-│   ├── users_controller.js
-│   └── userShippingAddresses_controller.js
-│
+- controllers/
+  - basket_controller.js
+  - categories_controller.js
+  - mail_controller.js
+  - orderItems_controller.js
+  - orders_controller.js
+  - productImages_controller.js
+  - products_controller.js
+  - savedCards_controller.js
+  - shippingAddresses_controller.js
+  - users_controller.js
+  - userShippingAddresses_controller.js
+
 * Contains modules for JWT authentication and authorization.
-├── jwt
-│   ├── jwt_authentication.js
-│   ├── jwt_authorization.js               
-│   └── jwt_generate.js
-│
+- jwt/
+  - jwt_authentication.js
+  - jwt_authorization.js
+  - jwt_generate.js
+
 * Contains the mailer module for sending emails.
-├── mailer
-│   └── mailer.js
-│
+- mailer/
+  - mailer.js
+
 * Contains the migration files for creating database tables.
-├── migrations
-│   ├── ..data..create-users.js
-│   ├── ..data..create-categories.js
-│   ├── ..data..create-products.js
-│   ├── ..data..create-productImages.js
-│   ├── ..data..create-baskets.js
-│   ├── ..data..create-shippingAddresses.js
-│   ├── ..data..create-userShippingAddresses.js
-│   ├── ..data..create-savedCards.js
-│   ├── ..data..create-orders.js
-│   └── ..data..create-orderItems.js
-│
+- migrations/
+  - create-users.js
+  - create-categories.js
+  - create-products.js
+  - create-productImages.js
+  - create-baskets.js
+  - create-shippingAddresses.js
+  - create-userShippingAddresses.js
+  - create-savedCards.js
+  - create-orders.js
+  - create-orderItems.js
+
 *  Defines the database models using Sequelize for different entities.
-├── models
-│   ├── baskets.js
-│   ├── categories.js
-│   ├── index.js
-│   ├── orderItems.js
-│   ├── orders.js
-│   ├── productImages.js
-│   ├── products.js
-│   ├── savedCards.js
-│   ├── shippingAddresses.js
-│   ├── users.js
-│   └── userShippingAddresses.js
-│
+- models/
+  - baskets.js
+  - categories.js
+  - index.js
+  - orderItems.js
+  - orders.js
+  - productImages.js
+  - products.js
+  - savedCards.js
+  - shippingAddresses.js
+  - users.js
+  - userShippingAddresses.js
+
 * Contains the multer middleware configuration for handling file uploads.
-├── multer
-│   ├── multerForProducts.js
-│   └── multerForUsers.js
-│
+- multer/
+  - multerForProducts.js
+  - multerForUsers.js
+
 * Contains the route files that define the API endpoints and their corresponding 
-├── routes
-│   ├── basket_routes.js
-│   ├── categories_routes.js
-│   ├── mail_rout.js
-│   ├── orderItems_routes.js
-│   ├── orders_routes.js
-│   ├── productImages_routes.js
-│   ├── products_routes.js
-│   ├── savedCards_routes.js
-│   ├── shippingAddresses_routes.js
-│   ├── users_routes.js
-│   └── userShippingAddresses.js
-│
+- routes/
+  - basket_routes.js
+  - categories_routes.js
+  - mail_routes.js
+  - orderItems_routes.js
+  - orders_routes.js
+  - productImages_routes.js
+  - products_routes.js
+  - savedCards_routes.js
+  - shippingAddresses_routes.js
+  - users_routes.js
+  - userShippingAddresses_routes.js
+
 * Contains the seed files for populating the initial data in the database.
-├── seeders
-│   ├── ..data..add-users.js
-│   ├── ..data..add-categories.js
-│   ├── ..data..add-products.js
-│   ├── ..data..add-productImages.js
-│   ├── ..data..add-shippingAddresses.js
-│   └── ..data..add-savedCards.js
-│
+- seeders/
+  - add-users.js
+  - add-categories.js
+  - add-products.js
+  - add-productImages.js
+  - add-shippingAddresses.js
+  - add-savedCards.js
+
 * Directory to store uploaded images.
-├── uploads
-│
+- uploads/
+
 * The entry point of the application, where the server is initialized and started.
-└── server.js 
+- server.js
 
 
 ## Environment Variables
