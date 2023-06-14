@@ -219,11 +219,7 @@ The server exposes the following API endpoints:
 ## Environment Variables
 The server uses the following environment variables, which can be set in a .env file or configured in your deployment environment:
 
-. `SECRET` - A secret key used for signing and verifying JWT tokens.
-. `PASSWORD_MAIL` - The password for the email account used for sending verification emails with Nodemailer.
-. `MYSQL_HOST` - The hostname of the MySQL database server.
-. `MYSQL_USER ` - The username for connecting to the MySQL database.
-. `MYSQL_PASSWORD` - The password for connecting to the MySQL database.
-. `MYSQL_DATABASE` - The name of the MySQL database used for the E-commerce web application.
+* `SECRET` - A secret key used for signing and verifying JWT tokens.
+* `PASSWORD_MAIL` - The password for the email account used for sending verification emails with Nodemailer.
 
 Make sure to configure these environment variables appropriately before running the server to ensure proper functionality and connectivity with the MySQL database.
