@@ -153,15 +153,15 @@ The server exposes the following API endpoints:
   - **users_controller.js**
   - **userShippingAddresses_controller.js**
 
-- **jwt/** ( Contains modules for JWT authentication and authorization.)
+- **jwt/** Contains modules for JWT authentication and authorization.
   - **jwt_authentication.js**
   - **jwt_authorization.js**
   - **jwt_generate.js**
 
-- **mailer/** (Contains the mailer module for sending emails.)
+- **mailer/** Contains the mailer module for sending emails.
   - **mailer.js**
 
-- **migrations/** (Contains the migration files for creating database tables.)
+- **migrations/** Contains the migration files for creating database tables.
   - **create-users.js**
   - **create-categories.js**
   - **create-products.js**
@@ -173,7 +173,7 @@ The server exposes the following API endpoints:
   - **create-orders.js**
   - **create-orderItems.js**
 
-- **models/** (Defines the database models using Sequelize for different entities.)
+- **models/** Defines the database models using Sequelize for different entities.
   - **baskets.js**
   - **categories.js**
   - **index.js**
@@ -186,11 +186,11 @@ The server exposes the following API endpoints:
   - **users.js**
   - **userShippingAddresses.js**
 
-- **multer/** (Contains the multer middleware configuration for handling file uploads.)
+- **multer/** Contains the multer middleware configuration for handling file uploads.
   - **multerForProducts.js**
   - **multerForUsers.js**
  
-- **routes/** (Contains the route files that define the API endpoints and their corresponding )
+- **routes/** Contains the route files that define the API endpoints and their corresponding 
   - **basket_routes.js**
   - **categories_routes.js**
   - **mail_routes.js**
@@ -203,7 +203,7 @@ The server exposes the following API endpoints:
   - **users_routes.js**
   - **userShippingAddresses_routes.js**
 
-- **seeders/** (Contains the seed files for populating the initial data in the database.)
+- **seeders/** Contains the seed files for populating the initial data in the database.
   - **add-users.js**
   - **add-categories.js**
   - **add-products.js**
@@ -211,9 +211,9 @@ The server exposes the following API endpoints:
   - **add-shippingAddresses.js**
   - **add-savedCards.js**
 
-- **uploads/** (Directory to store uploaded images.)
+- **uploads/** Directory to store uploaded images.
 
-- **server.js** (The entry point of the application, where the server is initialized and started.)
+- **server.js** The entry point of the application, where the server is initialized and started.
 
 
 ## Environment Variables
