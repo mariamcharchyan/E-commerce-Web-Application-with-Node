@@ -137,12 +137,10 @@ See the code for detailed information on each endpoint and their usage.
 
 ## Project Structure
 
-* Contains the configuration file config.json for database settings.
-- config/
-  - config.json
 
-* Holds the controllers responsible for handling different API endpoints and their related logic.                      
-- controllers/
+- config/ (Contains the configuration file config.json for database settings.)
+  - config.json                     
+- controllers/ (Holds the controllers responsible for handling different API endpoints and their related logic.)
   - basket_controller.js
   - categories_controller.js
   - mail_controller.js
@@ -156,17 +154,17 @@ See the code for detailed information on each endpoint and their usage.
   - userShippingAddresses_controller.js
 
 * Contains modules for JWT authentication and authorization.
-- jwt/
+- jwt/ ()
   - jwt_authentication.js
   - jwt_authorization.js
   - jwt_generate.js
 
 * Contains the mailer module for sending emails.
-- mailer/
+- mailer/ ()
   - mailer.js
 
 * Contains the migration files for creating database tables.
-- migrations/
+- migrations/ ()
   - create-users.js
   - create-categories.js
   - create-products.js
@@ -179,7 +177,7 @@ See the code for detailed information on each endpoint and their usage.
   - create-orderItems.js
 
 *  Defines the database models using Sequelize for different entities.
-- models/
+- models/ ()
   - baskets.js
   - categories.js
   - index.js
@@ -193,12 +191,12 @@ See the code for detailed information on each endpoint and their usage.
   - userShippingAddresses.js
 
 * Contains the multer middleware configuration for handling file uploads.
-- multer/
+- multer/ ()
   - multerForProducts.js
   - multerForUsers.js
 
 * Contains the route files that define the API endpoints and their corresponding 
-- routes/
+- routes/ ()
   - basket_routes.js
   - categories_routes.js
   - mail_routes.js
@@ -212,7 +210,7 @@ See the code for detailed information on each endpoint and their usage.
   - userShippingAddresses_routes.js
 
 * Contains the seed files for populating the initial data in the database.
-- seeders/
+- seeders/ ()
   - add-users.js
   - add-categories.js
   - add-products.js
@@ -221,10 +219,9 @@ See the code for detailed information on each endpoint and their usage.
   - add-savedCards.js
 
 * Directory to store uploaded images.
-- uploads/
+- uploads/ ()
 
-* The entry point of the application, where the server is initialized and started.
-- server.js
+- server.js (The entry point of the application, where the server is initialized and started.)
 
 
 ## Environment Variables
