@@ -6,6 +6,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('./uploads'));
 const cors = require('cors');
 app.use(cors());
+const bodyParser = require('body-parser');
+app.use(bodyParser.json({ limit: '10mb' }));
+
 const users_routes = require('./routes/users_routes');
 const mail_rout = require('./routes/mail_rout');
 const categories_routes = require('./routes/categories_routes');
@@ -18,6 +21,13 @@ const savedCards_routes = require('./routes/savedCards_routes');
 const orders_routes = require('./routes/orders_routes');
 const orderItems_routes = require('./routes/orderItems_routes');
 
+// Enable CORS middleware
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+//     next();
+// });
 
 users_routes.register_user_route(app);
 users_routes.login_user_route(app);

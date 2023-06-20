@@ -4,6 +4,7 @@ const jwt_generate = require('../jwt/jwt_generate');
 const mailer = require('../mailer/mailer');
 const { Users } = require('../models');
 const fs = require('fs');
+const path = require('path');
 
 const SECRET = process.env.SECRET
 const saltRounds = 10;
@@ -14,11 +15,10 @@ async function register_user(req, res) {
   try {
     console.log(req.body);
     const { firstName, lastName, age, gender, email, password } = req.body;
-    let imagePath = 'https://t3.ftcdn.net/jpg/05/87/76/66/240_F_587766653_PkBNyGx7mQh9l1XXPtCAq1lBgOsLl6xH.jpg';
+    let imagePath = path.join('uploads', 'seedUsersPhotos', 'user.png');
     if (req.file){
-      imagePath = req.file.path;
+      imagePath = path.relative(process.cwd(), req.file.path);
     }
-
     const salt = await bcrypt.genSalt(saltRounds);
     const hashed_password = await bcrypt.hash(password, salt);
     console.log({hashed_password:hashed_password});
