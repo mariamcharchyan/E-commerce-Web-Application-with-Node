@@ -61,6 +61,7 @@ async function add_order(req, res) {
             return res.status(404).json({ error: 'Product not found' });
           } else {
             quantitySold.quantity_sold += product.quantity;
+            quantitySold.quantity -= product.quantity;
             await quantitySold.save();
           }
   

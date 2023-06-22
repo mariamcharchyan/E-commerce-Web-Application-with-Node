@@ -173,9 +173,9 @@ async function delete_product_id(req, res) {
         });
   
         if (rowsDeleted === 0) {
-            res.status(404).json({ error: 'Product not found' });
+            res.json({ error: 'Product not found' });
         } else {
-            res.status(204).json({ success: 'Product and associated images successfully deleted' });
+            res.json({ success: 'Product and associated images successfully deleted' });
         }
     } catch (err) {
         res.status(500).json({ error: err.message });

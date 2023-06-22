@@ -40,7 +40,7 @@ async function register_user(req, res) {
 
     console.log(newUser);
 
-    const token = jwt_generate.generateAccessToken(email);
+    const token = jwt_generate.generateAccessToken(email,newUser.status);
     mailer.send_Mail(email, token);
 
     return res.send(JSON.stringify({ newUser, token}));
@@ -68,7 +68,7 @@ async function login_user(req, res) {
       return res.status(201).json({ status: 'Wrong password' });
     }
 
-    const token = jwt_generate.generateAccessToken(email);
+    const token = jwt_generate.generateAccessToken(email,user.status);
     return res.status(201).json({
       status: user.status,
       token 

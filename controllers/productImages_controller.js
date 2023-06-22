@@ -29,9 +29,9 @@ async function get_productImages_productId(req, res) {
           productId: req.params.productId,
         },
       });
-      if (productImages.length === 0) {
-        return res.status(404).json({ error: 'No images found' });
-      }
+      // if (productImages.length === 0) {
+      //   return res.status(404).json({ error: 'No images found' });
+      // }
       res.json(productImages);
     } catch (err) {
       res.status(500).json({ error: err.message });
